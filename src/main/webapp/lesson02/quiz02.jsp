@@ -17,7 +17,7 @@
 		<h1>날짜, 시간 링크</h1>
 		<div class = "mt-5">
 			<a href="/lesson02/quiz02_1.jsp?type=time" class="btn btn-info">현재 시간 확인</a>
-			<a href="/lesson02/quiz02_1.jsp>type=date" class="btn btn-success">현재 날짜 확인</a>
+			<a href="/lesson02/quiz02_1.jsp?type=date" class="btn btn-success">현재 날짜 확인</a>
 		</div>
 	</div>
 </body>
