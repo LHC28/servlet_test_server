@@ -11,16 +11,17 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>메뉴 검색</title>
 </head>
 <body>
-	<%String score = ""; %>
 	<div class="container">
 		<h1>메뉴 검색</h1>
-		<form method = "post" aciton = "/lesson02/quiz07_1.jsp">
+		<form method="post" action="/lesson02/quiz07_1.jsp">
+		<!-- 같이 보낼 입력값이 들어가는 것은 같은 form에 넣는 것이라고 생각하면 될듯. -->
 			<div class = "d-flex">
 				<input type="text" class="form-control col-3" name="menu" Placeholder="치킨">
-				<input type="checkbox" name="score" value = "score" class = "m-3">
+				<input type="checkbox" name="scoreCheck" value = "scoreCheck" class = "m-3">
+				<!-- checkbox는 닫는 것이 없기 때문에 value를 넣어주는 것이 맞다. -->
 				<span class="mt-2">4점 이하 제외</span>
 			</div>
 			<input type="submit" class="btn btn-success mt-2" value="검색">

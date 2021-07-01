@@ -32,27 +32,81 @@
 	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	    list.add(map);
 	    
-	    String score = request.getParameter("score");
+	    String scoreCheck = request.getParameter("scoreCheck");
+	    // 체크하면 value가 넘어오고 안 하면 null이 넘어온다.
 	    String menu = request.getParameter("menu");
 	%>
 	
 	<div class="container">
-		<h1>검색 결과</h1>
-		<table class="table">
+		<h1 class = "text-center">검색 결과</h1>
+		<table class="table text-center">
 			<thead>
 				<th>메뉴</th>
 				<th>상호</th>
 				<th>별점</th>
+				<!-- 여기서도 tr을 넣는 것이 좋아보인다.(thead, tbody구분이 되는 것 같아 넣지 않음.) -->
 			</thead>
 			<tbody>
-				<%
-					for(int i=0; i<list.size(); i++){
-						
-					}
-				%>
-				<tr>
+
+					<%
+					out.print(scoreCheck);
+						for(int i=0; i<list.size(); i++){
+							if(list.get(i).get("menu").equals(menu)){
+								if(scoreCheck!=null){
+								// null은 equals을 쓰는 것이 아닌가 보다....
+								// &&나 ||도 쓰도록 하자.
+									double score = (double)list.get(i).get("point");
+								// object라서 형변환해주어야 비교가 가능하다.
+									if(score>=4.0){
+					%>
+						<tr>
+							<td>
+								<%
+									out.print(list.get(i).get("menu"));
+								%>
+							</td>
+							<td>
+								<%
+									out.print(list.get(i).get("name"));
+								%>
+							</td>
+							<td>
+								<%
+									out.print(list.get(i).get("point"));
+								%>
+							</td>
+						</tr>
+					<%
+									}
+								}
+								else{
+									// 두 번 반복하는 것이 맞을까????
+									// continue를 활용하면 두번 반복 안 해도 된다.
+					%>
+						<tr>
+							<td>
+								<%
+									out.print(list.get(i).get("menu"));
+								%>
+							</td>
+							<td>
+								<%
+									out.print(list.get(i).get("name"));
+								%>
+							</td>
+							<td>
+								<%
+									out.print(list.get(i).get("point"));
+								%>
+							</td>
+						</tr>
 					
-				</tr>
+					<%
+								}
+							}
+						}
+					 %>
+
 			</tbody>
 		</table>
 	</div>
