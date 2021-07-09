@@ -2,13 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.test.common.MysqlService" %>
 <%@ page import="java.sql.ResultSet" %>
-<section>
+<%
+String check = request.getParameter("check");
+%>
+<%	
+// 물건 올리기를 누르지 않았을 때...
+if(check==null || !check.equals("O")){
+%>
+<section class="mt-4">
 		<%
-		String check = request.getParameter("check");
-		
-		// 물건 올리기를 누르지 않았을 때...
-		if(check==null){
-		
 			MysqlService mysqlService = MysqlService.getInstance();
 			mysqlService.connection();
 			
@@ -28,10 +30,10 @@
 				</article>
 		<%
 			}
-		
 			mysqlService.disconnect();
-			
-		}
 		%>
-			</div>
-		</section>
+		</div>
+</section>
+<%
+}
+		%>
